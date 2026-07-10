@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Powered Road Damage Detection System – Project Poster | G-1111 | KMIT 2025-26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0d1b2a;
+      --navy-mid:   #112240;
+      --navy-light: #1a2f4a;
+      --card-bg:    #152535;
+      --amber:      #f59e0b;
+      --amber-light:#fbbf24;
+      --amber-dark: #d97706;
+      --teal:       #06b6d4;
+      --green:      #22c55e;
+      --purple:     #a855f7;
+      --rose:       #f43f5e;
+      --white:      #ffffff;
+      --muted:      #94a3b8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1a1a2e;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .poster {
+      width: 900px;
+      background: var(--navy);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      border: 1px solid rgba(245,158,11,0.2);
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      background: linear-gradient(135deg, #0d1b2a 0%, #112240 50%, #0d1b2a 100%);
+      padding: 36px 40px 28px;
+      border-bottom: 3px solid var(--amber);
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,182,212,0.10) 0%, transparent 70%);
+    }
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.4);
+      color: var(--amber-light);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .badge.blue { background: rgba(6,182,212,0.12); border-color: rgba(6,182,212,0.4); color: var(--teal); }
+    .poster-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+    .poster-title span { color: var(--amber); }
+    .poster-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .team-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 8px 6px;
+      text-align: center;
+    }
+    .team-card .roll { font-size: 9px; font-weight: 700; color: var(--amber); letter-spacing: 0.5px; margin-bottom: 2px; }
+    .team-card .name { font-size: 9.5px; font-weight: 500; color: var(--white); line-height: 1.3; }
+    .meta-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .meta-row strong { color: var(--amber-light); }
+
+    /* ─── SECTION ─── */
+    section { padding: 22px 40px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .sec-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sec-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(245,158,11,0.4), transparent);
+    }
+
+    /* ─── ABSTRACT ─── */
+    .abstract-text {
+      font-size: 12.5px;
+      line-height: 1.75;
+      color: #cbd5e1;
+      text-align: justify;
+    }
+    .abstract-text strong { color: var(--amber-light); }
+
+    /* ─── ARCHITECTURE ─── */
+    .arch-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+    .arch-box {
+      flex-shrink: 0;
+      border-radius: 10px;
+      padding: 14px 12px;
+      text-align: center;
+      min-width: 110px;
+      position: relative;
+    }
+    .arch-box .icon { font-size: 22px; margin-bottom: 5px; }
+    .arch-box .label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .arch-box .sublabel { font-size: 9px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+    .arch-box.blue  { background: linear-gradient(135deg, #0369a1, #0284c7); border: 1px solid #0ea5e9; }
+    .arch-box.green { background: linear-gradient(135deg, #15803d, #16a34a); border: 1px solid #22c55e; }
+    .arch-box.amber { background: linear-gradient(135deg, #b45309, #d97706); border: 1px solid #f59e0b; }
+    .arch-box.purple { background: linear-gradient(135deg, #6d28d9, #7c3aed); border: 1px solid #a855f7; }
+    .arch-box.teal { background: linear-gradient(135deg, #0e7490, #0891b2); border: 1px solid #06b6d4; }
+    .arrow {
+      font-size: 20px;
+      color: var(--amber);
+      flex-shrink: 0;
+      padding: 0 4px;
+      font-weight: 900;
+    }
+    .arch-caption {
+      text-align: center;
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* ─── FEATURES ─── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .feat-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 14px 12px;
+      transition: transform 0.2s;
+    }
+    .feat-card:hover { transform: translateY(-2px); }
+    .feat-card .emoji { font-size: 22px; margin-bottom: 6px; display: block; }
+    .feat-card .f-title { font-size: 11.5px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .feat-card .f-desc  { font-size: 10px; color: var(--muted); line-height: 1.5; }
+
+    /* ─── RESULTS ─── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .stat-card {
+      background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.03));
+      border: 1px solid rgba(245,158,11,0.25);
+      border-radius: 12px;
+      padding: 18px 10px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label { font-size: 10.5px; color: var(--muted); font-weight: 500; line-height: 1.3; }
+
+    /* ─── DAMAGE CLASSES ─── */
+    .dmg-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .dmg-card {
+      border-radius: 10px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .dmg-card.d00 { background: linear-gradient(135deg, rgba(248,113,113,0.15), rgba(239,68,68,0.08)); border: 1px solid rgba(248,113,113,0.35); }
+    .dmg-card.d10 { background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(245,158,11,0.08)); border: 1px solid rgba(251,191,36,0.35); }
+    .dmg-card.d20 { background: linear-gradient(135deg, rgba(74,222,128,0.15), rgba(34,197,94,0.08));  border: 1px solid rgba(74,222,128,0.35); }
+    .dmg-card.d40 { background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(168,85,247,0.08)); border: 1px solid rgba(167,139,250,0.35); }
+    .dmg-code {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .d00 .dmg-code { color: #f87171; }
+    .d10 .dmg-code { color: #fbbf24; }
+    .d20 .dmg-code { color: #4ade80; }
+    .d40 .dmg-code { color: #a78bfa; }
+    .dmg-name { font-size: 11px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+    .dmg-desc { font-size: 9.5px; color: var(--muted); line-height: 1.4; }
+
+    /* ─── TECH STACK ─── */
+    .tech-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--white);
+      transition: background 0.2s;
+    }
+    .tech-pill:hover { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); }
+    .tech-pill .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .dot-python  { background: #3b82f6; }
+    .dot-fastapi { background: #22c55e; }
+    .dot-yolo    { background: #ef4444; }
+    .dot-react   { background: #06b6d4; }
+    .dot-vite    { background: #a855f7; }
+    .dot-sqlite  { background: #f59e0b; }
+    .dot-ultra   { background: #ec4899; }
+    .dot-rdd     { background: #f97316; }
+
+    /* ─── DATASET ─── */
+    .dataset-box {
+      background: var(--card-bg);
+      border: 1px solid rgba(6,182,212,0.2);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .dataset-icon { font-size: 28px; flex-shrink: 0; }
+    .dataset-text p { font-size: 11.5px; color: #cbd5e1; line-height: 1.6; }
+    .dataset-text strong { color: var(--teal); }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: linear-gradient(135deg, #0d1b2a, #112240);
+      padding: 18px 40px;
+      border-top: 2px solid var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-left { font-size: 11px; color: var(--muted); line-height: 1.6; }
+    .footer-left strong { color: var(--amber-light); }
+    .footer-right { text-align: right; }
+    .footer-right .review-badge {
+      background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+    .footer-right p { font-size: 10px; color: var(--muted); }
+  </style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <header class="header">
+    <div class="badge-row">
+      <span class="badge">G-1111</span>
+      <span class="badge blue">CSE-AIML · 2025-26</span>
+      <span class="badge">RTRP Review-02</span>
+      <span class="badge blue">June 2026</span>
+    </div>
+    <div class="poster-title">
+      🛣️ <span>AI-Powered</span> Road Damage Detection System
+    </div>
+    <div class="poster-subtitle">
+      Automated Pavement Defect Classification using Deep Learning (YOLOv8) for Smart Urban Infrastructure
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><div class="roll">24BD1A668Z</div><div class="name">Lolla Sri Ram</div></div>
+      <div class="team-card"><div class="roll">24BD1A6693</div><div class="name">M Vibhu</div></div>
+      <div class="team-card"><div class="roll">24BD1A6696</div><div class="name">Muthireddy Abhinav Reddy</div></div>
+      <div class="team-card"><div class="roll">24BD1A6698</div><div class="name">Palle Rushikesh</div></div>
+      <div class="team-card"><div class="roll">24BD1A669A</div><div class="name">PSPK Purna Chandh</div></div>
+    </div>
+    <div class="meta-row">
+      <span>👩‍🏫 <strong>Mentor:</strong> Ms. Padhmaja</span>
+      <span>🏛️ <strong>Institution:</strong> KMIT – Keshav Memorial Institute of Technology, Hyderabad</span>
+      <span>📚 <strong>Dept:</strong> CSE-AIML</span>
+    </div>
+  </header>
+
+  <!-- ══════════════ ABSTRACT ══════════════ -->
+  <section>
+    <div class="sec-title">📄 Abstract</div>
+    <p class="abstract-text">
+      Road infrastructure degradation poses a critical safety and economic challenge across developing and developed nations alike. Traditional manual inspection methods are <strong>time-consuming, inconsistent, and costly</strong>, leading to delayed maintenance and elevated accident risk. This paper presents an <strong>AI-Powered Road Damage Detection System</strong> that leverages the <strong>YOLOv8 Medium</strong> object detection architecture to automatically classify pavement defects from citizen-submitted images in real time. The system is trained on the <strong>RDD2022 benchmark dataset</strong>, comprising road images from India and Japan, across four internationally standardized damage categories: longitudinal cracking (D00), transverse cracking (D10), alligator cracking (D20), and potholes (D40). The full-stack web application integrates a <strong>FastAPI backend</strong>, a <strong>React + Vite.js</strong> frontend, and a <strong>SQLite</strong> database to enable citizens to report road damage, track repair status, and visualize community reports on an interactive map. The trained model achieves <strong>94.5% accuracy</strong> after 100 epochs of training on 1,530 annotated images using the SGD optimizer. The system provides an automated severity-scoring mechanism and an administrative dashboard for municipal authorities to prioritize and manage repair workflows efficiently, bridging the gap between AI research and practical smart-city infrastructure management.
+    </p>
+  </section>
+
+  <!-- ══════════════ ARCHITECTURE ══════════════ -->
+  <section>
+    <div class="sec-title">🏗️ System Architecture</div>
+    <div class="arch-flow">
+      <div class="arch-box blue">
+        <div class="icon">📱</div>
+        <div class="label">Citizen<br>Web App</div>
+        <div class="sublabel">React + Vite.js</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="arch-box green">
+        <div class="icon">⚡</div>
+        <div class="label">FastAPI<br>Server</div>
+        <div class="sublabel">REST API Layer</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="arch-box amber">
+        <div class="icon">🤖</div>
+        <div class="label">YOLOv8<br>Engine</div>
+        <div class="sublabel">Inference + Score</div>
+      </div>
+      <div class="arrow">↕</div>
+      <div class="arch-box purple">
+        <div class="icon">🗄️</div>
+        <div class="label">SQLite<br>Database</div>
+        <div class="sublabel">Reports + Users</div>
+      </div>
+      <div class="arrow">←</div>
+      <div class="arch-box teal">
+        <div class="icon">🛡️</div>
+        <div class="label">Admin<br>Dashboard</div>
+        <div class="sublabel">Management UI</div>
+      </div>
+    </div>
+    <p class="arch-caption">End-to-end pipeline: Image submission → AI inference → Severity scoring → Municipal action tracking</p>
+  </section>
+
+  <!-- ══════════════ KEY FEATURES ══════════════ -->
+  <section>
+    <div class="sec-title">✨ Key Features</div>
+    <div class="features-grid">
+      <div class="feat-card">
+        <span class="emoji">🤖</span>
+        <div class="f-title">AI Detection</div>
+        <div class="f-desc">Real-time YOLOv8-powered defect classification with bounding boxes and confidence scores on every submitted image.</div>
+      </div>
+      <div class="feat-card">
+        <span class="emoji">📊</span>
+        <div class="f-title">Severity Scoring</div>
+        <div class="f-desc">Automated severity index (Low / Medium / High / Critical) computed from damage class and confidence to guide repair priority.</div>
+      </div>
+      <div class="feat-card">
+        <span class="emoji">🛡️</span>
+        <div class="f-title">Admin Dashboard</div>
+        <div class="f-desc">Municipal authority panel with report aggregation, statistics, repair status management, and before/after photo comparison.</div>
+      </div>
+      <div class="feat-card">
+        <span class="emoji">🗺️</span>
+        <div class="f-title">Community Map</div>
+        <div class="f-desc">Interactive geospatial map visualizing all reported damage hotspots for citizens and planners to identify high-risk zones.</div>
+      </div>
+      <div class="feat-card">
+        <span class="emoji">🔄</span>
+        <div class="f-title">Status Tracking</div>
+        <div class="f-desc">Full report lifecycle from "Pending → In Progress → Fixed" with timestamped updates and citizen notifications.</div>
+      </div>
+      <div class="feat-card">
+        <span class="emoji">⚡</span>
+        <div class="f-title">Real-time Analysis</div>
+        <div class="f-desc">Sub-second YOLOv8 inference with annotated result images returned instantly to users after form submission.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ RESULTS ══════════════ -->
+  <section>
+    <div class="sec-title">📈 Performance Results</div>
+    <div class="results-grid">
+      <div class="stat-card">
+        <div class="stat-num">94.5%</div>
+        <div class="stat-label">Model Accuracy<br>(YOLOv8 Medium)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1,530</div>
+        <div class="stat-label">Training Images<br>(RDD2022 Dataset)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100</div>
+        <div class="stat-label">Training Epochs<br>SGD Optimizer</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Damage Classes<br>D00 D10 D20 D40</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ DAMAGE CLASSES ══════════════ -->
+  <section>
+    <div class="sec-title">🔍 Damage Classification Categories</div>
+    <div class="dmg-grid">
+      <div class="dmg-card d00">
+        <div class="dmg-code">D00</div>
+        <div class="dmg-name">Longitudinal Crack</div>
+        <div class="dmg-desc">Cracks parallel to road center-line; often from lane-edge fatigue or pavement shrinkage.</div>
+      </div>
+      <div class="dmg-card d10">
+        <div class="dmg-code">D10</div>
+        <div class="dmg-name">Transverse Crack</div>
+        <div class="dmg-desc">Cracks perpendicular to road axis; typically thermal expansion/contraction or reflective cracking.</div>
+      </div>
+      <div class="dmg-card d20">
+        <div class="dmg-code">D20</div>
+        <div class="dmg-name">Alligator Crack</div>
+        <div class="dmg-desc">Interconnected fatigue cracks forming a pattern resembling alligator skin — severe structural distress.</div>
+      </div>
+      <div class="dmg-card d40">
+        <div class="dmg-code">D40</div>
+        <div class="dmg-name">Pothole</div>
+        <div class="dmg-desc">Bowl-shaped depressions caused by water infiltration and traffic load; highest accident-risk category.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ DATASET ══════════════ -->
+  <section>
+    <div class="sec-title">📦 Dataset</div>
+    <div class="dataset-box">
+      <div class="dataset-icon">🌏</div>
+      <div class="dataset-text">
+        <p>
+          Trained on the <strong>RDD2022 (Road Damage Dataset 2022)</strong> benchmark, a large-scale, multi-country dataset captured using smartphone cameras mounted in vehicles.
+          The training subset used in this project comprises <strong>1,530 annotated images from India and Japan</strong>, representing diverse road conditions, surface types, and lighting environments.
+          Annotations include YOLO-format bounding boxes for four standardized damage classes (D00, D10, D20, D40) as defined by Japanese road inspection standards,
+          ensuring <strong>global applicability</strong> and <strong>cross-domain generalizability</strong> of the trained model.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TECH STACK ══════════════ -->
+  <section>
+    <div class="sec-title">🛠️ Technology Stack</div>
+    <div class="tech-wrap">
+      <span class="tech-pill"><span class="dot dot-python"></span>Python 3.11</span>
+      <span class="tech-pill"><span class="dot dot-fastapi"></span>FastAPI</span>
+      <span class="tech-pill"><span class="dot dot-yolo"></span>YOLOv8 Medium</span>
+      <span class="tech-pill"><span class="dot dot-react"></span>React 18</span>
+      <span class="tech-pill"><span class="dot dot-vite"></span>Vite.js</span>
+      <span class="tech-pill"><span class="dot dot-sqlite"></span>SQLite</span>
+      <span class="tech-pill"><span class="dot dot-ultra"></span>Ultralytics</span>
+      <span class="tech-pill"><span class="dot dot-rdd"></span>RDD2022 Dataset</span>
+      <span class="tech-pill"><span class="dot dot-python"></span>SGD Optimizer</span>
+      <span class="tech-pill"><span class="dot dot-react"></span>Leaflet.js Maps</span>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="footer-left">
+      <strong>Mentor:</strong> Ms. Padhmaja &nbsp;|&nbsp;
+      <strong>Dept:</strong> CSE-AIML &nbsp;|&nbsp;
+      <strong>Group:</strong> G-1111<br>
+      Keshav Memorial Institute of Technology (KMIT), Hyderabad · Academic Year 2025-26
+    </div>
+    <div class="footer-right">
+      <div class="review-badge">RTRP · Review-02</div>
+      <p>June 2026 &nbsp;·&nbsp; CSE-AIML Dept.</p>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

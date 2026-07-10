@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafePath AI - Project Poster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d1b2a;
+            --surface: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --accent: #f59e0b; /* Amber */
+            --accent-glow: rgba(245, 158, 11, 0.3);
+            --text-main: #ffffff;
+            --text-muted: #cbd5e1;
+            
+            --v-bike: #ef4444;
+            --v-car: #3b82f6;
+            --v-truck: #10b981;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px;
+            /* A1 Size aspect ratio approximation for web viewing */
+            max-width: 900px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        /* --- Header --- */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #fcd34d, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header h2 {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .team-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .team-member {
+            background: var(--surface);
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .inst-info {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .group-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--accent);
+            color: #000;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* --- Grid Layout --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- Content Styles --- */
+        p {
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Architecture Flow */
+        .arch-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .arch-box {
+            background: rgba(0,0,0,0.5);
+            border: 2px solid var(--accent);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .arch-arrow {
+            color: var(--accent);
+            font-size: 2rem;
+            margin: 0 10px;
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .feature-card {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .feature-card h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        .feature-card p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Results / Metrics */
+        .metrics-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .metric {
+            padding: 10px;
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px dashed var(--accent);
+            padding: 20px;
+            text-align: center;
+            font-family: monospace;
+            font-size: 1.3rem;
+            border-radius: 8px;
+            color: #60a5fa;
+            margin: 20px 0;
+        }
+        
+        .formula-box span.var { color: #f87171; }
+
+        /* Tech Badges */
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="group-badge">G-1111</div>
+        <h1>SafePath AI</h1>
+        <h2>Road Condition-Aware Navigation System (Phase 3)</h2>
+        
+        <div class="team-info">
+            <span class="team-member">Lolla Sri Ram (24BD1A668Z)</span>
+            <span class="team-member">M Vibhu (24BD1A6693)</span>
+            <span class="team-member">Muthireddy Abhinav Reddy (24BD1A6696)</span>
+            <span class="team-member">Palle Rushikesh (24BD1A6698)</span>
+            <span class="team-member">PSPK Purna Chandh (24BD1A669A)</span>
+        </div>
+        
+        <div class="inst-info">
+            Mentor: Ms. Padhmaja | CSE-AIML | KMIT — Keshav Memorial Institute of Technology, Hyderabad
+        </div>
+    </header>
+
+    <div class="grid-container">
+        
+        <!-- Abstract -->
+        <div class="section full-width">
+            <h2 class="section-title">🚀 Abstract</h2>
+            <p>Traditional navigation systems optimize routes based solely on distance or traffic congestion, completely ignoring the physical condition of the road surface. This poses severe safety risks, particularly for vulnerable vehicles like two-wheelers. SafePath AI bridges this gap by integrating real-time road hazard data (detected via YOLOv8 and citizen reports) directly into an advanced pathfinding engine. Utilizing a custom A* algorithm operating on a NetworkX graph populated with OpenStreetMap data, the system calculates safety-aware routes. It applies dynamic penalty weights to hazardous road segments based on vehicle-specific vulnerability profiles, successfully diverting high-risk vehicles away from severe damage while minimizing travel time disruptions.</p>
+        </div>
+
+        <!-- System Architecture -->
+        <div class="section full-width">
+            <h2 class="section-title">⚙️ System Architecture</h2>
+            <div class="arch-flow">
+                <div class="arch-box">React UIs<br><span style="font-size:0.8rem;font-weight:400;">Citizen & Gov Dash</span></div>
+                <div class="arch-arrow">➔</div>
+                <div class="arch-box" style="border-color: #3b82f6;">FastAPI<br><span style="font-size:0.8rem;font-weight:400;">Backend + WebSocket</span></div>
+                <div class="arch-arrow">➔</div>
+                <div class="arch-box" style="border-color: #10b981;">A* Engine & YOLOv8<br><span style="font-size:0.8rem;font-weight:400;">Routing & Inference</span></div>
+                <div class="arch-arrow">➔</div>
+                <div class="arch-box" style="border-color: #ef4444;">SQLite / PostGIS<br><span style="font-size:0.8rem;font-weight:400;">Spatial Data</span></div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="section">
+            <h2 class="section-title">✨ Core Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🗺️ A* Spatial Routing</h4>
+                    <p>KD-Tree indexed graph routing using real-time OSM road geometries.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏍️ Vehicle Profiles</h4>
+                    <p>Dynamic penalties for Bikes (3.0x), Cars (1.0x), and Trucks (0.4x).</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🛡️ Custom Route Modes</h4>
+                    <p>Selectable thresholds: Fastest, Smoothest, Safest, Safe@Night.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📡 Real-Time WebSockets</h4>
+                    <p>Instant hazard broadcasting to all active navigation clients.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏛️ Gov Command Center</h4>
+                    <p>SLA monitoring, priority queues, and repair crew routing.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔐 Fraud Detection</h4>
+                    <p>Perceptual hashing prevents duplicate image submissions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div class="section">
+            <h2 class="section-title">🧠 Routing Logic</h2>
+            <p>The core innovation is the dynamic edge-weight penalty applied during the A* search. When a hazard is detected near an OSM road segment, a time-equivalent penalty is added to that edge, discouraging the pathfinder from using it.</p>
+            
+            <div class="formula-box">
+                Edge_Weight += (<span class="var">Severity</span>²) × 50s × <span class="var">Vehicle_Factor</span>
+            </div>
+            
+            <p><strong>Impact:</strong> A "D40 Pothole" (Severity 4) creates an 800-second penalty for a Bike (3.0x), but only a 106-second penalty for a Truck (0.4x), ensuring safe divergence for vulnerable commuters.</p>
+        </div>
+
+        <!-- Results -->
+        <div class="section full-width">
+            <h2 class="section-title">📊 System Performance</h2>
+            <div class="metrics-grid">
+                <div class="metric">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">Vehicle Profiles Supported</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">4</div>
+                    <div class="metric-label">Dynamic Route Modes</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">&lt;500<span style="font-size:1.5rem">ms</span></div>
+                    <div class="metric-label">A* Route Calculation</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">5</div>
+                    <div class="metric-label">Safety Metrics per Route</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="section full-width">
+            <h2 class="section-title">💻 Technology Stack</h2>
+            <div class="tech-badges">
+                <span class="badge">Python 3.10</span>
+                <span class="badge">FastAPI</span>
+                <span class="badge">YOLOv8</span>
+                <span class="badge">NetworkX</span>
+                <span class="badge">SciPy KD-Tree</span>
+                <span class="badge">React 18</span>
+                <span class="badge">Vite</span>
+                <span class="badge">Leaflet.js</span>
+                <span class="badge">Overpass OSM API</span>
+                <span class="badge">SQLite / PostGIS</span>
+                <span class="badge">Firebase Auth</span>
+                <span class="badge">WebSockets</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        SafePath AI | RTRP Review-02 | June 2026 | KMIT — Keshav Memorial Institute of Technology, Hyderabad
+    </footer>
+
+</body>
+</html>

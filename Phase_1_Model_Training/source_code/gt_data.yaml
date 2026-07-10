@@ -1,0 +1,11 @@
+path: C:/Road_Damage_Project/ROAD DAMAGE NEW/dataset/yolo_ground_truth
+train: train/images
+val: val/images
+
+# Classes
+nc: 4
+names:
+  0: D00 # Longitudinal Crack
+  1: D10 # Transverse Crack
+  2: D20 # Alligator Crack
+  3: D40 # Pothole

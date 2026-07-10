@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: aiprdd-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 2 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: aiprdd-db
+          property: connectionString
+      - key: ENVIRONMENT
+        value: production
+      - key: ALLOWED_ORIGINS
+        value: "*" # Update this with your Vercel URLs for strict security later
+
+databases:
+  - name: aiprdd-db
+    databaseName: road_safety
+    user: postgres
+    plan: free
